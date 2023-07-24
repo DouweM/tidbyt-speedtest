@@ -1,0 +1,15 @@
+jobs:
+- name: speedtest
+  tasks:
+  - tap-pixlet--speedtest target-tidbyt
+- name: speedtest--webp
+  tasks:
+  - tap-pixlet--speedtest target-webp
+
+plugins:
+  extractors:
+  - name: tap-pixlet--speedtest
+    inherit_from: tap-pixlet
+    pip_url: git+https://github.com/DouweM/tap-pixlet.git -r apps/speedtest/requirements.txt
+    config:
+      path: apps/speedtest
